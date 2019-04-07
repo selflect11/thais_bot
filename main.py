@@ -1,6 +1,6 @@
+#!/usr/bin/env python
 import re
 import code
-from typing import List
 from config import *
 from itertools import tee
 from docx import Document
@@ -81,7 +81,7 @@ def field_reorganize(page):
             if re.search(DICA_HEADER, paragraph.text):
                 is_dicas_block = True
                 dicas.append(paragraph)
-                break
+                continue
             elif re.search(QUESTOES_HEADER, paragraph.text):
                 # for readability
                 is_dicas_block = False
