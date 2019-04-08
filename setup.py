@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from disutils.core import setup
+from distutils.core import setup
 
 setup(name='Thais_Bot',
       version='1.0',
