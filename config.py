@@ -1,5 +1,6 @@
 DEBUG = False
-FILE_INPUT_PATH = './files/input_test_copy.docx'
+FILE_INPUT_DIR = './files/input/'
+FILE_OUTPUT_DIR = './files/output/'
 MAIN_HEADER = r'Código:'
 BANCA_HEADER = ORGAO_HEADER = r'Banca: (?P<banca>.+?) \((?P<orgao>.+?)\)'
 ANO_HEADER = r'Ano: (?P<ano>\d{4})'
