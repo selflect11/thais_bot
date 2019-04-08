@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import re
+import os
 import code
 from config import *
 from itertools import tee
@@ -133,11 +134,14 @@ def save_doc(path, page_list):
     d.save(path)
 
 if __name__ == '__main__':
-    paf = FILE_INPUT_PATH
-    d = Document(FILE_INPUT_PATH)
-    pages = get_page_blocks(d.paragraphs)
-    fixed_pages = format_doc(pages)
-    save_doc(paf, fixed_pages)
+    for filename in os.listdir(FILE_INPUT_DIR):
+        d = Document(os.path.join(FILE_INPUT_DIR, filename))
+        pages = get_page_blocks(d.paragraphs)
+        fixed_pages = format_doc(pages)
+
+        name, extension = os.path.splitext(filename)
+        out_path = os.path.join(FILE_OUTPUT_DIR, name + '_out' + extension)
+        save_doc(out_path, fixed_pages)
 
     if DEBUG:
         code.interact(local=locals())
